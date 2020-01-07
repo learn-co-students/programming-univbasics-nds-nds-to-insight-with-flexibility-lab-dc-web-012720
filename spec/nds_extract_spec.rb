@@ -40,14 +40,21 @@ describe 'movies_with_directors_set' do
         # This lets "sample_data" be used in the two "it" statements below
         let (:test_data) {
           [
-            { :name => "Byron Poodle", :movies => [
-              { :title => "At the park" },
-              { :title => "On the couch" },
-            ]
+            { 
+              :name => "Byron Poodle",
+              :movies => 
+              [
+                { :title => "At the park" },
+                { :title => "On the couch" },
+              ]
             },
-            { :name => "Nancy Drew", :movies => [
-              { :title => "Biting" },
-            ]
+            
+            { 
+              :name => "Nancy Drew", 
+              :movies => 
+              [
+                { :title => "Biting" },
+              ]
             }
           ] 
         }
