@@ -1,0 +1,17 @@
+def gross_per_studio(collection)
+collection = [{movie1 data}, {movie2 data}, ... ]
+result = {studio1 => worldwide_gross, studio2 => worldwide_gross, ...}
+
+index = 0
+result = {}
+  while index < collection.length do 
+    studio = collection[index][:studio]
+    if result[studio]
+      result[studio] += collection[index][:worldwide_gross]
+    else
+      result[studio] = collection[index][:worldwide_gross]
+    end
+    index += 1
+  end 
+ result
+end
