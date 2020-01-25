@@ -212,7 +212,7 @@ def summary_snack_count_by_prices(snacks)
   i = 0
 
   while i < snacks.length do
-    # For readability, let's save this lookup to somethign meaningful
+    # For readability, let's save this lookup to something meaningful
     snack_name = snacks[i][:name]
     snack_price = snacks[i][:price]
     # If there's no key for this number, add the number as a key and assign it
