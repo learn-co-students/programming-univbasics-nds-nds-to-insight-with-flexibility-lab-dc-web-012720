@@ -29,54 +29,57 @@ def movie_with_director_name(director_name, movie_data)
     :director_name => director_name
   }
 end
+# transforms the data for an individual movie to include the director name
 
-
-# Your code after this point
+# Your code after this point ############################################
 
 def movies_with_director_key(name, movies_collection)
-  # GOAL: For each Hash in an Array (movies_collection), provide a collection
-  # of movies and a directors name to the movie_with_director_name method
-  # and accumulate the returned Array of movies into a new Array that's
-  # returned by this method.
-  #
-  # INPUT:
-  # * name: A director's name
-  # * movies_collection: An Array of Hashes where each Hash represents a movie
-  #
-  # RETURN:
-  #
-  # Array of Hashes where each Hash represents a movie; however, they should all have a
-  # :director_name key. This addition can be done by using the provided
-  # movie_with_director_name method
+  final_array1 = []
+  counter1 = 0 
+    while counter1 < movies_collection.length do
+      current_movie = movies_collection[counter1] 
+      final_array1[counter1] = movie_with_director_name(name, current_movie)
+      counter1 += 1 
+    end 
+  final_array1
 end
 
-
 def gross_per_studio(collection)
-  # GOAL: Given an Array of Hashes where each Hash represents a movie,
-  # return a Hash that includes the total worldwide_gross of all the movies from
-  # each studio.
-  #
-  # INPUT:
-  # * collection: Array of Hashes where each Hash where each Hash represents a movie
-  #
-  # RETURN:
-  #
-  # Hash whose keys are the studio names and whose values are the sum
-  # total of all the worldwide_gross numbers for every movie in the input Hash
+  final_hash = {} 
+  counter2 = 0 
+    while counter2 < collection.length do 
+      current_studio = collection[counter2][:studio]
+      if final_hash[current_studio] == nil 
+        final_hash[current_studio] = 0 
+      end 
+      final_hash[current_studio] += collection[counter2][:worldwide_gross]
+      counter2 += 1 
+    end 
+  final_hash 
 end
 
 def movies_with_directors_set(source)
-  # GOAL: For each director, find their :movies Array and stick it in a new Array
+  final_array = [] 
+  final_counter = 0 
+  while final_counter < source.length do
+    name = source[final_counter][:name]
+    movies_collection = source[final_counter][:movies]
+    add_this = movies_with_director_key(name, movies_collection) # this will give an array of movie hashes with the director name included for that director 
+    final_array.push(add_this)
+    final_counter += 1 
+  end 
+  final_array
+end
+
+# GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
   # * source: An Array of Hashes containing director information including
   # :name and :movies
   #
   # RETURN:
-  #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
-end
 
 # ----------------    End of Your Code Region --------------------
 # Don't edit the following code! Make the methods above work with this method
